@@ -6,7 +6,6 @@ import { PortsComponent } from './ports.component';
 import { CountriesvisitedComponent } from './countriesvisited.component';
 import { VoyagesChartComponent } from './voyages-chart/voyages-chart.component';
 import { ShipDurationChartComponent } from './ship-duration-chart/ship-duration-chart.component';
-
 export const routes: Routes = [
     {path : "ships", component: ShipsComponent},
     {path : 'voyages', component : VoyagesComponent},
