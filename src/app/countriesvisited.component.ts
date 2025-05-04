@@ -7,13 +7,20 @@ import { CommonModule } from '@angular/common';
   standalone : true,
   imports: [CommonModule],
   template: `
-    <ul>
-      <li *ngFor="let country of countries">
-        {{country.countryName}} - {{country.visitDate}}
-      </li>
-    </ul>
+   <div class="countries-container">
+    <h2 class="countries-title">Countries Visited</h2>
+    <div class="info-box">
+      <p>List of countries visited by ships</p>
+    </div>
+    <div class="countries-list"> 
+      <div *ngFor="let country of countries" class="country-card">
+        <h3>{{country.countryName}}</h3>
+        <p><strong>Visited Date : </strong>{{country.visitDate | date}}</p>
+      </div>
+    </div>
+   </div>
   `,
-  styles: ``
+  styleUrls: ['./countriesvisited.component.css']
 })
 export class CountriesvisitedComponent implements OnInit {
   countries : CountryVisited[] = [];
