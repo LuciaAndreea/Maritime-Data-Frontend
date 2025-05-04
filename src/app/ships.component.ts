@@ -7,14 +7,17 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <h2>Ships</h2>
-    <ul>
-      <li *ngFor="let ship of ships">
-        {{ship.name}} - {{ship.maxSpeed}} knots
-      </li>
-    </ul>
+  <div class="page-wrapper">
+    <h2 class="page-title">Ships</h2>
+    <div class="ships-container">
+      <div *ngFor="let ship of ships" class="ship-card">
+        <h3>{{ship.name}}</h3>
+        <p><strong>Max speed:</strong> {{ship.maxSpeed}} km/h</p>
+      </div>
+    </div>
+    </div>
   `,
-  styles: ``
+  styleUrls: ['./ships.component.css']
 })
 export class ShipsComponent implements OnInit{
   ships: Ship[] = [];
