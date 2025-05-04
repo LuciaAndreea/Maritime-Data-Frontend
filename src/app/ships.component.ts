@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ShipsService, Ship } from './services/ships.service';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { loadShips } from './state/ships/ships.actions';
-import { selectAllShips } from './state/ships/ships.selector';
+import { loadShips } from './state/ships/ships/ships.actions';
+import { selectAllShips } from './state/ships/ships/ships.selector';
 import { Observable } from 'rxjs';
 
 @Component({

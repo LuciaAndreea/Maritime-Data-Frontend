@@ -7,9 +7,9 @@ import { Ship } from './services/ships.service';
 import { Observable, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { loadVoyages } from './state/ships/voyages/voyages.actions';
-import { loadShips } from './state/ships/ships.actions';
+import { loadShips } from './state/ships/ships/ships.actions';
 import { selectAllVoyages } from './state/ships/voyages/voyages.selectors';
-import { selectAllShips } from './state/ships/ships.selector';
+import { selectAllShips } from './state/ships/ships/ships.selector';
 
 @Component({
   selector: 'app-voyages',

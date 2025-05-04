@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { loadShipsFailure, loadShipsSucces } from "./ships.actions";
-import { Ship } from "../../services/ships.service";
+import { Ship } from "../../../services/ships.service";
 
 export interface ShipsState{
     ships: Ship[];

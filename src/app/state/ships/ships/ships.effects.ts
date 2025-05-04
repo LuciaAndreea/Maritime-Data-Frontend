@@ -1,6 +1,6 @@
 import { Injectable, inject } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { ShipsService } from "../../services/ships.service";
+import { ShipsService } from "../../../services/ships.service";
 import { loadShips, loadShipsFailure, loadShipsSucces } from "./ships.actions";
 import { mergeMap, map, catchError, tap} from "rxjs/operators";
 import { of } from "rxjs";
