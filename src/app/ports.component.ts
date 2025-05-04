@@ -1,6 +1,10 @@
-import { Component,OnInit} from '@angular/core';
+import { Component} from '@angular/core';
 import { PortsService, Port } from './services/ports.service';
 import { CommonModule } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { loadPorts } from './state/ships/ports/ports.actions';
+import { selectAllPorts } from './state/ships/ports/ports.selectors';
+import { OnInit, inject } from '@angular/core';
 
 @Component({
   selector: 'app-ports',
@@ -13,7 +17,7 @@ import { CommonModule } from '@angular/common';
       <p>List with all the ports available</p>
     </div>
     <div class="ports-list">
-      <div *ngFor="let port of ports" class="port-card">
+      <div *ngFor="let port of ports$ | async" class="port-card">
         <h3>{{port.name}}</h3>
         <p><strong>Ship Id: {{port.country}}</strong></p>
       </div>
@@ -22,13 +26,16 @@ import { CommonModule } from '@angular/common';
   `,
   styleUrls: ['./ports.component.css']
 })
-export class PortsComponent implements OnInit{
-  ports : Port[] = [];
+export class PortsComponent implements OnInit {
+  private store = inject(Store);
+  ports$ = this.store.select(selectAllPorts);
 
-  constructor(private portService : PortsService){}
   ngOnInit(): void {
-    this.portService.getPorts().subscribe(data =>{
-      this.ports = data;
-    })
-}
+    console.log('✅ Dispatching loadPorts...');
+    this.store.dispatch(loadPorts());
+
+    this.ports$.subscribe(data => {
+      console.log('✅ Ports from store:', data);
+    });
+  }
 }

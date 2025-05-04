@@ -9,10 +9,12 @@ import { shipsReducer } from './app/state/ships/ships.reducer';
 import { ShipsEffect } from './app/state/ships/ships.effects';
 import { voyagesReducer } from './app/state/ships/voyages/voyages.reducer';
 import { VoyagesEffects } from './app/state/ships/voyages/voyages.effects';
+import { portsReducer } from './app/state/ships/ports/ports.reducer';
+import { PortsEffects } from './app/state/ships/ports/ports.effects';
 
 bootstrapApplication(AppComponent, {
   providers: [provideHttpClient(), 
     provideRouter(routes), 
-    provideStore({ships: shipsReducer, voyages: voyagesReducer}), 
-    provideEffects([ShipsEffect, VoyagesEffects])]
+    provideStore({ships: shipsReducer, voyages: voyagesReducer, ports: portsReducer}), 
+    provideEffects([ShipsEffect, VoyagesEffects, PortsEffects])]
 });
