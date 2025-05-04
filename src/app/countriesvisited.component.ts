@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CountriesvisitedService, CountryVisited } from './services/countriesvisited.service';
 import { CommonModule } from '@angular/common';
-
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { loadCountries } from './state/ships/countriesvisited/countries.actions';
+import { selectAllCountries } from './state/ships/countriesvisited/countries.seelctors';
 @Component({
   selector: 'app-countriesvisited',
   standalone : true,
@@ -13,7 +16,7 @@ import { CommonModule } from '@angular/common';
       <p>List of countries visited by ships</p>
     </div>
     <div class="countries-list"> 
-      <div *ngFor="let country of countries" class="country-card">
+      <div *ngFor="let country of countries$ | async" class="country-card">
         <h3>{{country.countryName}}</h3>
         <p><strong>Visited Date : </strong>{{country.visitDate | date}}</p>
       </div>
@@ -23,12 +26,14 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./countriesvisited.component.css']
 })
 export class CountriesvisitedComponent implements OnInit {
-  countries : CountryVisited[] = [];
+  private store = inject(Store);
+  countries$: Observable<CountryVisited[]> = this.store.select(selectAllCountries);
 
-  constructor(private countryService: CountriesvisitedService){}
   ngOnInit(): void {
-      this.countryService.getCountriesVisited().subscribe(data =>{
-        this.countries = data;
-      })
+    console.log('✅ Dispatching loadCountries...');
+    this.store.dispatch(loadCountries());
+    this.countries$.subscribe(data => {
+      console.log('✅ Countries from store:', data);
+    });
   }
 }

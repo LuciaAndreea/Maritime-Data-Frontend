@@ -11,10 +11,12 @@ import { voyagesReducer } from './app/state/ships/voyages/voyages.reducer';
 import { VoyagesEffects } from './app/state/ships/voyages/voyages.effects';
 import { portsReducer } from './app/state/ships/ports/ports.reducer';
 import { PortsEffects } from './app/state/ships/ports/ports.effects';
+import { countriesReducer } from './app/state/ships/countriesvisited/countries.reducer';
+import { CountriesEffect } from './app/state/ships/countriesvisited/countries.effects';
 
 bootstrapApplication(AppComponent, {
   providers: [provideHttpClient(), 
     provideRouter(routes), 
-    provideStore({ships: shipsReducer, voyages: voyagesReducer, ports: portsReducer}), 
-    provideEffects([ShipsEffect, VoyagesEffects, PortsEffects])]
+    provideStore({ships: shipsReducer, voyages: voyagesReducer, ports: portsReducer, countries: countriesReducer}), 
+    provideEffects([ShipsEffect, VoyagesEffects, PortsEffects, CountriesEffect])]
 });
