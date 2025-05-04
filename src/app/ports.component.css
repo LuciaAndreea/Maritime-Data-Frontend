@@ -9,7 +9,7 @@
     font-size: 2rem;
     text-align: center;
     margin-bottom: 20px;
-    color: #ff9100;
+    color: #007BFF;
   }
   
   .info-box {
@@ -41,7 +41,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
     text-align: center;
     transition: transform 0.3s ease;
-    border-left: 6px solid #ff9100;
+    border-left: 6px solid #007BFF;
   }
   
   .port-card:hover {
@@ -51,7 +51,7 @@
   .port-card h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color:#ff9100 ;
+    color:#007BFF ;
   }
   
   .port-card p {
