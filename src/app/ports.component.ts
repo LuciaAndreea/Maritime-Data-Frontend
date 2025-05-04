@@ -7,14 +7,20 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <h2>Ports</h2>
-    <ul>
-      <li *ngFor="let port of ports">
-        {{port.name}} ({{ port.country}})
-      </li>
-    </ul>
+    <div class="ports-container">
+    <h2 class="ports-title">Ports</h2>
+    <div class="info-box">
+      <p>List with all the ports available</p>
+    </div>
+    <div class="ports-list">
+      <div *ngFor="let port of ports" class="port-card">
+        <h3>{{port.name}}</h3>
+        <p><strong>Ship Id: {{port.country}}</strong></p>
+      </div>
+    </div>
+    </div>
   `,
-  styles: ``
+  styleUrls: ['./ports.component.css']
 })
 export class PortsComponent implements OnInit{
   ports : Port[] = [];
