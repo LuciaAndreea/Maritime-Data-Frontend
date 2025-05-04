@@ -1,0 +1,67 @@
+.voyages-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin-top: 30px;
+}
+
+.voyage-card{
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-left: 6px solid #007BFF;
+}
+
+.ship-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+.ship-card h3{
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: #007BFF;
+    font-weight: 600;
+}
+
+.ship-card p{
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.page-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+.page-title{
+    font-size: 2.5rem;
+    color: #28a745;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.info-box{
+    background-color: #f8f8f8;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 700px;
+    font-size: 1.1rem;
+    text-align: center;
+}
