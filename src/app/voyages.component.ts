@@ -11,7 +11,7 @@ import { ShipsService } from './services/ships.service';
     <div class="page-wrapper">
       <h2 class="page-title">Voyages</h2>
       <div class="info-box">
-        <p>All the ships and all their voyages of this year</p>
+        <p>All the ships and all of their voyages this year</p>
       </div>
       <div class="voyages-container">
         <div *ngFor="let voyage of voyages" class="voyage-card">
