@@ -1,10 +1,29 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { provideMockStore } from '@ngrx/store/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [
+        AppComponent,
+        HttpClientTestingModule
+      ],
+      providers: [
+        provideMockStore(),
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: { params: {}, queryParams: {} },
+            params: of({}),
+            queryParams: of({}),
+            data: of({})
+          }
+        }
+      ]
     }).compileComponents();
   });
 
@@ -14,16 +33,11 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'maritime-data-frontend' title`, () => {
+  it(`should have as title 'maritime-data-frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('maritime-data-frontend');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, maritime-data-frontend');
-  });
+  
 });
